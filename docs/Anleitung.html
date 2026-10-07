@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Claude als dein Creative Manager</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --accent: #D97757;
+    --ink: #1a1a1a;
+    --ink-soft: #4a4a4a;
+    --paper: #ffffff;
+    --line: #e5e2df;
+    --card-bg: #faf9f7;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 14.5px;
+    line-height: 1.5;
+  }
+  .page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 48px;
+  }
+  h1 {
+    font-size: 34px;
+    font-weight: 800;
+    margin: 0 0 6px;
+    letter-spacing: -0.5px;
+  }
+  .subtitle {
+    color: var(--ink-soft);
+    font-size: 16px;
+    margin: 0 0 28px;
+  }
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .box {
+    background: var(--card-bg);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 18px 20px;
+  }
+  .box h3 {
+    margin: 0 0 8px;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .box p, .box li {
+    margin: 0;
+    font-size: 13.5px;
+    color: var(--ink);
+  }
+  .box ul {
+    margin: 0;
+    padding-left: 18px;
+  }
+  .box li { margin-bottom: 4px; }
+  h2.section {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 36px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--accent);
+  }
+  .step {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 16px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .step:last-child { border-bottom: none; }
+  .step-num {
+    font-size: 30px;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .step-body h4 {
+    margin: 0 0 6px;
+    font-size: 15.5px;
+    font-weight: 700;
+  }
+  .step-body p {
+    margin: 0 0 8px;
+    color: var(--ink-soft);
+  }
+  code, .mono {
+    font-family: 'SF Mono', Menlo, Consolas, monospace;
+    font-size: 12.5px;
+  }
+  .cmd {
+    display: block;
+    background: #1a1a1a;
+    color: #f2ede8;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin: 8px 0;
+    font-family: 'SF Mono', Menlo, Consolas, monospace;
+    font-size: 12.5px;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+  }
+  .cmd .accent { color: #f0a888; }
+  .note {
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    background: var(--card-bg);
+    border-left: 3px solid var(--accent);
+    padding: 8px 12px;
+    border-radius: 4px;
+    margin-top: 6px;
+  }
+  .check-box, .trouble-box {
+    background: var(--card-bg);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin: 24px 0;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .check-box h3, .trouble-box h3 {
+    margin: 0 0 12px;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--accent);
+  }
+  .checklist { list-style: none; margin: 0; padding: 0; }
+  .checklist li {
+    padding: 5px 0 5px 26px;
+    position: relative;
+    font-size: 13.5px;
+  }
+  .checklist li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 14px;
+    height: 14px;
+    border: 2px solid var(--accent);
+    border-radius: 3px;
+  }
+  .trouble-item {
+    margin-bottom: 10px;
+    font-size: 13.5px;
+  }
+  .trouble-item strong { color: var(--ink); }
+  .trouble-item span { color: var(--ink-soft); }
+  footer {
+    margin-top: 40px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    display: flex;
+    justify-content: space-between;
+  }
+  footer a { color: var(--accent); text-decoration: none; }
+  .credits {
+    font-size: 12px;
+    color: var(--ink-soft);
+    margin-top: 24px;
+  }
+  @media print {
+    @page { size: A4; margin: 14mm 12mm; }
+    body { font-size: 13px; }
+    .page { padding: 0; max-width: none; }
+    .step, .check-box, .trouble-box, .box { page-break-inside: avoid; }
+  }
+
+  .kicker { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
+  .lead { color: var(--ink-soft); margin: 0 0 14px; }
+  .flow { display: flex; align-items: center; gap: 6px; margin: 0 0 26px; }
+  .flow span { color: var(--accent); font-weight: 700; }
+  .fs { flex: 1; text-align: center; background: var(--card-bg); border: 1px solid var(--line); border-radius: 10px; padding: 9px 4px;
+        font-family: 'SF Mono', Menlo, monospace; font-size: 11.5px; font-weight: 700; }
+  .fs b { display: block; font-family: 'Inter', sans-serif; font-size: 18px; color: var(--accent); line-height: 1.1; }
+  .fs i { display: block; font-style: normal; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 11px; color: var(--ink-soft); }
+  .skill { border: 1px solid var(--line); border-radius: 12px; padding: 16px 20px; margin: 0 0 14px; break-inside: avoid; page-break-inside: avoid; }
+  .skill p { margin: 8px 0 10px; color: var(--ink-soft); }
+  .sk-head { display: flex; align-items: center; gap: 12px; }
+  .sk-num { width: 30px; height: 30px; border-radius: 50%; background: var(--accent); color: #fff; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+  .sk-name { font-family: 'SF Mono', Menlo, monospace; font-size: 17px; font-weight: 700; }
+  .sk-time { margin-left: auto; font-size: 12px; color: var(--ink-soft); background: var(--card-bg); border: 1px solid var(--line); border-radius: 20px; padding: 3px 10px; }
+  .sk-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 12px; font-size: 13px; }
+  .sk-grid > div { background: var(--card-bg); border-radius: 8px; padding: 9px 12px; }
+  .sk-grid b { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); margin-bottom: 3px; }
+  .sk-extra { margin-top: 10px; font-size: 13px; color: var(--ink-soft); border-left: 3px solid var(--accent); padding: 4px 0 4px 12px; }
+  .week { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin: 0 0 14px; break-inside: avoid; }
+  .week > div { background: var(--card-bg); border: 1px solid var(--line); border-radius: 10px; padding: 10px; font-size: 12.5px; color: var(--ink-soft); }
+  .week b { display: block; color: var(--ink); font-size: 13px; margin-bottom: 3px; }
+  h2.section { break-after: avoid; page-break-after: avoid; }
+  .pb { break-before: page; page-break-before: always; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="kicker">Kostenlos von Pascal Frey</div>
+  <h1>Claude als dein Creative Manager</h1>
+  <p class="subtitle">Fünf Skills für Claude Code, die deinen Content von der ersten Idee bis zum geschnittenen Reel begleiten. Du erzählst einmal, wer du bist. Ab da plant, recherchiert und schreibt Claude mit dir zusammen.</p>
+
+  <div class="flow">
+    <div class="fs"><b>1</b>/interview<i>Profil</i></div><span>→</span>
+    <div class="fs"><b>2</b>/recherche<i>Themen</i></div><span>→</span>
+    <div class="fs"><b>3</b>/content-plan<i>Plan</i></div><span>→</span>
+    <div class="fs"><b>4</b>/skript<i>Skripte</i></div><span>→</span>
+    <div class="fs"><b>5</b>/edit<i>Video</i></div>
+  </div>
+
+  <div class="intro-grid">
+    <div class="box">
+      <h3>Was du bekommst</h3>
+      <p>Ein Profil, das Claude über dich Bescheid weiß. Eine Recherche mit echten Quellen. Einen Content-Plan, der zu deiner Zeit passt. Skripte in deinem Ton mit je drei Hooks. Und Hilfe beim Schnitt, entweder macht Claude ihn selbst oder du bekommst eine Schnittliste.</p>
+    </div>
+    <div class="box">
+      <h3>Was du brauchst</h3>
+      <ul>
+        <li>Claude Code, Pro- oder Max-Plan</li>
+        <li>Mac, Windows oder Linux (für Schnitt durch Claude: Mac)</li>
+        <li>Etwa 45 Minuten für den ersten Durchlauf</li>
+        <li>Handy oder Kamera zum Drehen</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 class="section">Teil 1: Installation, etwa 5 Minuten</h2>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-body">
+      <h4>Claude Code installieren</h4>
+      <p>Falls du es noch nicht hast: Claude Code ist Claude als Programm auf deinem Rechner, das Dateien lesen und schreiben kann. Am einfachsten ist die Desktop-App von claude.ai/download, dort gibt es den Bereich "Code". Anmelden mit deinem Claude-Konto (Pro oder Max).</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-body">
+      <h4>Repo runterladen</h4>
+      <p>Auf der GitHub-Seite auf den grünen Button "Code" klicken, dann "Download ZIP". Entpacken. Der Ordner heißt dann "claude-content-skills-main". Schieb ihn zum Beispiel nach Dokumente.</p>
+      <span class="cmd">Terminal-Alternative:
+git clone <span class="accent">https://github.com/Pascal-code-code/claude-content-skills.git</span></span>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-body">
+      <h4>Ordner in Claude Code öffnen</h4>
+      <p>Desktop-App: genau diesen Ordner wählen, also den mit README.md darin, nicht den Ordner drüber. Terminal: erst reinwechseln, dann Claude starten.</p>
+      <span class="cmd">cd claude-content-skills
+claude</span>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-body">
+      <h4>Testen, ob alles da ist</h4>
+      <p>Tipp einen Schrägstrich ins Eingabefeld. In der Liste sollten interview, recherche, content-plan, skript und edit auftauchen. Wenn ja, bist du fertig.</p>
+      <div class="note">Keine Skills in der Liste? Dann hast du meistens den Ordner drüber geöffnet. Einmal schließen und den Ordner mit README.md darin öffnen.</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">5</div>
+    <div class="step-body">
+      <h4>Optional: Skills überall nutzen</h4>
+      <p>Willst du die Skills in jedem Projekt haben, nicht nur in diesem Ordner, kopierst du sie einmal in deinen persönlichen Skill-Ordner. Claude legt <code>mein-content/</code> dann dort an, wo du gerade arbeitest.</p>
+      <span class="cmd">cp -R .claude/skills/* ~/.claude/skills/</span>
+    </div>
+  </div>
+
+  <h2 class="section">Teil 2: Die fünf Skills</h2>
+  <p class="lead">Alle fünf lesen und schreiben in den Ordner <code>mein-content/</code>. Darum musst du nichts doppelt erzählen: Was du im Interview sagst, landet in jedem Skript. Claude nennt dir nach jedem Schritt den nächsten.</p>
+
+  <div class="skill">
+    <div class="sk-head"><span class="sk-num">1</span><span class="sk-name">/interview</span><span class="sk-time">15 bis 20 Min</span></div>
+    <p>Claude interviewt dich, eine Frage pro Nachricht: Wer bist du, was bietest du an, wer schaut dir zu und in welcher Situation, welche echten Zahlen und Ergebnisse kannst du zeigen, was darf nie behauptet werden, wie oft willst du posten. Hast du eine Website oder alte Captions, wirf sie am Anfang rein, dann fragt er nur noch die Lücken ab. Am Ende schlägt er dir 3 bis 5 Themen-Säulen vor, die du bestätigst.</p>
+    <div class="sk-grid">
+      <div><b>Ergebnis</b><code>mein-content/profil.md</code></div>
+      <div><b>Tipp</b>Antworte so, wie du redest, nicht wie auf einer Website. Genau diese Wörter braucht Claude später für die Hooks.</div>
+    </div>
+    <div class="sk-extra"><b>Teil 2, optional (etwa 60 Minuten):</b> deine Stimme. Du gibst Claude 5 bis 10 frei gesprochene Aufnahmen von dir, zum Beispiel Sprachnachrichten oder alte Videos. Er analysiert, wie du redest, und schreibt <code>stimme.md</code>. Ab da klingen alle Skripte nach dir statt nach Maschine. Keine Aufnahmen da? Eine Sprachmemo von 5 Minuten reicht für den Anfang.</div>
+  </div>
+
+  <div class="skill">
+    <div class="sk-head"><span class="sk-num">2</span><span class="sk-name">/recherche</span><span class="sk-time">10 bis 15 Min Maschinenzeit</span></div>
+    <p>Claude geht für dich ins Netz und sucht pro Themen-Säule: Was fragt deine Zielgruppe gerade, in ihren eigenen Worten? Was ist in den letzten 30 Tagen neu? Was läuft bei anderen Creators auf YouTube? Welche Mythen kannst du geraderücken? Daraus baut er 10 bis 20 Themen-Kandidaten und bewertet sie: Passt es zur Zielgruppe, kannst du etwas Eigenes zeigen, ist es gefragt, führt es zu deinem Ziel?</p>
+    <div class="sk-grid">
+      <div><b>Ergebnis</b><code>mein-content/recherche/&lt;datum&gt;.md</code></div>
+      <div><b>Tipp</b>Instagram und TikTok kann Claude ohne Login kaum durchsuchen. Schick ihm Links zu Accounts oder Screenshots, die dir aufgefallen sind, die wertet er mit aus.</div>
+    </div>
+  </div>
+
+  <div class="skill">
+    <div class="sk-head"><span class="sk-num">3</span><span class="sk-name">/content-plan</span><span class="sk-time">etwa 5 Min</span></div>
+    <p>Aus Profil und Recherche baut Claude deinen Plan, Standard sind 2 Wochen: welches Video an welchem Tag, mit Säule, drei Hook-Ideen, Aufbau, was du zeigst und genau einem CTA. Er wechselt die Säulen ab, mischt aktuelle und zeitlose Themen und bündelt Drehtage. Und er plant nur so viel, wie du in deiner Zeit wirklich schaffst.</p>
+    <div class="sk-grid">
+      <div><b>Ergebnis</b><code>mein-content/plan.md</code></div>
+      <div><b>Tipp</b>48 Stunden nach jedem Post sagst du "/content-plan, werte aus" und gibst die Zahlen aus den Insights durch. Claude trägt sie ein und passt die nächsten Videos an.</div>
+    </div>
+  </div>
+
+  <div class="skill">
+    <div class="sk-head"><span class="sk-num">4</span><span class="sk-name">/skript</span><span class="sk-time">2 bis 5 Min pro Video</span></div>
+    <p>Sag zum Beispiel "Schreib das Skript für Zeile 1". Claude nimmt Thema, Hook-Idee und Beleg aus dem Plan und schreibt das Skript in deinem Ton: drei Hooks mit unterschiedlichem Ansatz, ein gemeinsamer Hauptteil, Bild und Einblendung pro Satz, CTA. Dazu die Regeln, die bei meinen eigenen Reels funktioniert haben: Ein Fremder muss den ersten Satz ohne Vorwissen verstehen, jede Behauptung braucht einen Beleg, die Frage aus dem Hook wird aufgelöst.</p>
+    <div class="sk-grid">
+      <div><b>Ergebnis</b><code>mein-content/skripte/</code></div>
+      <div><b>Tipp</b>Dreh alle drei Hooks und poste sie als Test-Versionen. Welcher läuft, entscheidet dein Publikum, nicht dein Bauch.</div>
+    </div>
+  </div>
+
+  <div class="skill">
+    <div class="sk-head"><span class="sk-num">5</span><span class="sk-name">/edit</span><span class="sk-time">15 bis 60 Min</span></div>
+    <p>Zwei Wege. <b>Weg A, Claude schneidet:</b> über meinen kostenlosen Claude Video Editor. Er transkribiert deine Aufnahme, nimmt pro Satz den besten Anlauf und schneidet Versprecher und Pausen raus. Wer will, bekommt danach den Split-Screen-Look mit Effekten. Läuft auf dem Mac, das Einrichten dauert einmal 10 bis 20 Minuten. <b>Weg B, du schneidest selbst:</b> Claude gibt dir eine Schnittliste für CapCut oder Premiere: welcher Anlauf pro Satz, Pausen auf etwa 0,15 Sekunden, Tempo 1,1x, Zoom an jedem Schnitt, CTA bis zum letzten Bild.</p>
+    <div class="sk-grid">
+      <div><b>Ergebnis</b>Fertiges Reel, Status im Plan auf "gedreht"</div>
+      <div><b>Tipp</b>Hör dir den Schnitt einmal mit geschlossenen Augen an. So hörst du jeden Schnitt, der mitten in einem Wort sitzt.</div>
+    </div>
+  </div>
+
+  <h2 class="section">So arbeitest du ab der zweiten Woche</h2>
+  <div class="week">
+    <div><b>Montag</b>/recherche, dann /content-plan für die nächsten 2 Wochen</div>
+    <div><b>Dienstag</b>/skript für alle Videos der Woche</div>
+    <div><b>Drehtag</b>alle Skripte am Stück drehen</div>
+    <div><b>Danach</b>/edit pro Video, posten</div>
+    <div><b>48 h später</b>/content-plan, werte aus</div>
+  </div>
+  <p class="lead">Das Interview machst du nur einmal. Ändert sich dein Angebot, sagst du einfach "/interview, mein Angebot hat sich geändert", dann fragt Claude nur das ab.</p>
+
+  <div class="check-box">
+    <h3>Die Regeln, an die sich alle fünf Skills halten</h3>
+    <ul class="checklist">
+      <li>Nichts wird erfunden: keine Zahlen, Kunden oder Erfolge, die du nicht selbst genannt hast. Fehlt ein Beleg, steht da "Beleg fehlt noch".</li>
+      <li>Jede Aussage aus der Recherche hat einen Link. Was Claude nicht gefunden hat, verkauft er nicht als aktuell.</li>
+      <li>Ein Ziel ist kein Ergebnis. "Ich will 10.000 Follower" steht nie als Beleg im Skript.</li>
+      <li>Genau ein CTA pro Video.</li>
+      <li>Nichts in <code>mein-content/</code> wird überschrieben, ohne es vorher zu lesen. Dein Plan wächst mit.</li>
+    </ul>
+  </div>
+
+  <div class="trouble-box">
+    <h3>Wenn etwas hakt</h3>
+    <div class="trouble-item"><strong>Die Skills tauchen nicht auf.</strong> <span>Du hast den Ordner drüber geöffnet. Den Ordner mit README.md darin öffnen.</span></div>
+    <div class="trouble-item"><strong>Claude fragt ständig um Erlaubnis.</strong> <span>Das ist normal, vor allem bei der Websuche und beim Schreiben von Dateien. Einfach erlauben, bei Bedarf "immer erlauben".</span></div>
+    <div class="trouble-item"><strong>Die Skripte klingen nicht nach mir.</strong> <span>Mach Teil 2 vom Interview (Stimme). Ohne <code>stimme.md</code> schreibt Claude sauber, aber nicht wie du.</span></div>
+    <div class="trouble-item"><strong>Die Recherche findet wenig.</strong> <span>Deine Säulen sind zu breit oder zu speziell. Sag Claude, welche Säule wenig hatte, und lass sie umformulieren.</span></div>
+    <div class="trouble-item"><strong>Sonst etwas.</strong> <span>Schreib mir auf Instagram, am besten mit Screenshot von der Stelle, wo es hängt.</span></div>
+  </div>
+
+  <p class="credits">Einige Methoden lehnen sich an die frei lizenzierten Skills von Eric Siu und Corey Haines an (MIT-Lizenz), Details in THIRD_PARTY.md im Repo. Claude ist eine Marke von Anthropic. Dieses Projekt steht in keiner Verbindung zu Anthropic.</p>
+
+  <footer>
+    <span>© 2026 Pascal Frey · MIT-Lizenz</span>
+    <a href="https://github.com/Pascal-code-code/claude-content-skills">github.com/Pascal-code-code/claude-content-skills</a>
+  </footer>
+</div>
+
+</body>
+</html>
