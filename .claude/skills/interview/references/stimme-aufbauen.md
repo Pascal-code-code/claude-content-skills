@@ -1,5 +1,7 @@
 # Eigene Stimme
 
+> **Für Claude:** Du führst die Schritte unten zusammen mit dem Nutzer aus. Die Ergebnisse schreibst du nach `mein-content/stimme.md` (Abschnitte wie in der Vorlage unten), nicht in diese Datei. Die Beispiele aus Pascals Stimme dienen nur zur Orientierung, übernimm sie nie in die Stimme des Nutzers.
+
 ## Warum das wichtig ist
 
 Leser merken KI-Text sofort. Gleiche Satzlänge, gleiche Übergänge, gleiche Wörter wie tausend andere Accounts. Das Ziel hier ist das Gegenteil: ein Text soll klingen, als hättest du ihn selbst gesagt. Nicht "professionell", nicht "glatt". So wie du wirklich redest, nur ohne Verhaspler.

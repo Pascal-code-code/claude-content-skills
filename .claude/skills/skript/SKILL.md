@@ -9,14 +9,23 @@ Diese Regeln stammen aus vielen eigenen Reels, ihren Insights und fünf Methoden
 
 ## Bevor du schreibst
 
+**Die wichtigste Regel: Jede Aussage über den Nutzer, seine Kunden oder seine Methode muss wörtlich aus `mein-content/profil.md` oder aus dem Chat stammen.** Verboten sind:
+- Häufigkeiten, die niemand gezählt hat: "fast alle", "die meisten meiner Kunden", "das höre ich ständig am Telefon"
+- erfundene Szenen und Details: Uhrzeiten, Anrufe, Küchenschränke, Gespräche, Zitate von Kunden
+- erfundene Tipps oder Methoden: Die Lösung im Video kommt aus dem Abschnitt "Methode" im Profil. Steht dort nichts Passendes, schreib keine eigene Lösung, sondern frag den Nutzer: "Was rätst du deinen Kunden an dieser Stelle?"
+
+Das gilt genauso für die Spalten Bild und Einblendung: auch dort keine Häufigkeiten oder Szenen, die nicht im Profil stehen.
+
+Allgemeine Fakten aus der Recherche sind erlaubt, wenn die Quelle dabeisteht.
+
 1. **`mein-content/profil.md` lesen:** Zielgruppe, ihre Wörter, Belege, Grenzen, CTA-Ziel. Fehlt das Profil, kurz auf `/interview` hinweisen und mit dem arbeiten, was der Nutzer im Chat sagt.
-2. **`mein-content/stimme.md` lesen:** Jeder Satz im Skript klingt danach. Fehlt sie, einmal anbieten, sie mit `/interview` (Teil 2) aufzubauen, und bis dahin die Regeln in `references/stimme-aufbauen.md` unter "Gilt für jede Stimme" nutzen. Liegt die Datei nicht hier, steht sie unter `../interview/references/stimme-aufbauen.md`.
-3. **Plan-Zeile lesen:** Sagt der Nutzer "Zeile 3" oder nennt ein Thema aus `mein-content/plan.md`, nimm Thema, Hook-Idee, Aufbau, Beleg und CTA von dort. Die passenden Quellen stehen in der Recherche-Datei, die der Plan im Kopf nennt.
-4. **Für Hooks** zusätzlich `references/hook-check.md` lesen, **für den CTA** `references/cta-und-lead-magnet.md`.
+2. **`mein-content/stimme.md` lesen:** Jeder Satz im Skript klingt danach. Fehlt sie, einmal anbieten, sie mit `/interview` (Teil 2) aufzubauen, und bis dahin die Regeln in `.claude/skills/interview/references/stimme-aufbauen.md` unter "Gilt für jede Stimme" nutzen. (Bei globaler Installation liegen die Skills unter `~/.claude/skills/` statt `.claude/skills/`.)
+3. **Plan-Zeile lesen:** Sagt der Nutzer "Zeile 3", ist die Zeile mit Nr 3 in `mein-content/plan.md` gemeint. Nimm Thema, Hook-Idee, Aufbau, Beleg und CTA von dort. Die Quellen findest du in der Recherche-Datei aus dem Plan-Kopf, beim Kandidaten mit der Nummer aus der Spalte Recherche-Nr.
+4. **Für Hooks** zusätzlich `.claude/skills/skript/references/hook-check.md` lesen, **für den CTA** `.claude/skills/skript/references/cta-und-lead-magnet.md`.
 
 ## Speichern
 
-Jedes Skript landet in `mein-content/skripte/<JJJJ-MM-TT>-<kurzer-titel>.md`. Kam es aus dem Plan, setz dort den Status der Zeile auf "Skript" und trag den Dateinamen ein. Danach als nächsten Schritt nennen: drehen, dann `/edit`.
+Jedes Skript landet in `mein-content/skripte/<JJJJ-MM-TT>-<kurzer-titel>.md`. Kam es aus dem Plan, setz dort den Status der Zeile auf "Skript" und trag den Dateinamen in die Spalte Skript ein. Danach als nächsten Schritt nennen: drehen, dann `/edit`.
 
 ## Die fünf Grundregeln
 
@@ -37,7 +46,7 @@ Ein guter Hook erfüllt vier Aufgaben gleichzeitig:
 3. **Reißt eine Lücke auf.** Durch einen Widerspruch, eine Zahl oder etwas, das auf dem Spiel steht.
 4. **Setzt das Thema.** Damit alles danach trägt.
 
-**Was bei uns gemessen besser lief:** Hooks, die einen Fehler oder ein Risiko ansprechen, das jeden in der Zielgruppe betrifft („du machst gerade einen Fehler"), hatten deutlich weniger Wischer als Nischen-Versprechen („dein eigener Video-Editor"). Bestes Reel: 40 % Skip-Rate, dreimal so viele Views wie üblich. Schwächste: 69 bis 77 % Skip-Rate.
+**Was bei Pascals Reels gemessen besser lief:** Hooks, die einen Fehler oder ein Risiko ansprechen, das jeden in der Zielgruppe betrifft („du machst gerade einen Fehler"), hatten deutlich weniger Wischer als Nischen-Versprechen („dein eigener Video-Editor"). Bestes Reel: 40 % Skip-Rate, dreimal so viele Views wie üblich. Schwächste: 69 bis 77 % Skip-Rate.
 
 **Ein Hook besteht aus drei Teilen,** die sich ergänzen und nicht wiederholen:
 
@@ -92,20 +101,22 @@ Aus den Methoden-Videos, von uns als Werkzeug genutzt, nicht als bewiesenes Gese
 
 ## Fünf Aufbauten, die funktionieren
 
-**1. Frage → Kontext → Mechanik → Regel → eigene Praxis** (erstes angenommenes Reel dieser Art)
+Die Beispiele zeigen nur die Form. Ihren Inhalt (Gesetze, Zahlen, Zeiträume) nie übernehmen, der stammt aus Pascals Reels. Die Kurznamen in Klammern stehen so in der Spalte Aufbau von `mein-content/plan.md`.
+
+**1. Frage → Kontext → Mechanik → Regel → eigene Praxis** (Frage→Praxis; erstes gepostetes Reel dieser Art)
 > Heißt das jetzt, dass man Texte nicht mehr mit KI erstellen sollte? Auch nicht ganz richtig.
 > Seit ein paar Wochen gilt der EU AI Act.
 > Einige Anbieter bauen versteckte Muster in ihre Texte ein, an denen man erkennt, welche KI sie geschrieben hat.
 > Plattformen erlauben KI-Inhalte, aber man muss sie kennzeichnen.
 > Deshalb schreibe ich meine Captions selber und lasse mir nur von der KI helfen.
 
-**2. Wunsch oder Beleg → Warum betrifft es mich → Mechanismus → eigener Bezug → Material → CTA** (Lead-Magnet-Videos, Details in `references/cta-und-lead-magnet.md`)
+**2. Wunsch oder Beleg → Warum betrifft es mich → Mechanismus → eigener Bezug → Material → CTA** (Lead-Magnet; Details in `.claude/skills/skript/references/cta-und-lead-magnet.md`)
 
-**3. Kontext → Richtung → Wendung → Auflösung mit Beleg** (Triple Hook als ganzes Video, gut für Serien)
+**3. Kontext → Richtung → Wendung → Auflösung mit Beleg** (Wendung; Triple Hook als ganzes Video, gut für Serien)
 
-**4. Listicle:** Hook → Anschluss-Zone → stärkster Punkt zuerst → Re-Hook → weitere Punkte → CTA. Drei bis sechs Punkte. Bei jedem Punkt sagen, warum er dem Ziel aus dem Hook dient. Nicht jedes Thema ist ein Listicle; eine Entwicklung als „3 Hacks" zu verkaufen wirkt billig.
+**4. Listicle (Liste):** Hook → Anschluss-Zone → stärkster Punkt zuerst → Re-Hook → weitere Punkte → CTA. Drei bis sechs Punkte. Bei jedem Punkt sagen, warum er dem Ziel aus dem Hook dient. Nicht jedes Thema ist ein Listicle; eine Entwicklung als „3 Hacks" zu verkaufen wirkt billig.
 
-**5. Aufreger → Beleg zeigen → Übertragung auf den Zuschauer → eigene Praxis → CTA**
+**5. Aufreger → Beleg zeigen → Übertragung auf den Zuschauer → eigene Praxis → CTA** (Aufreger)
 > Die großen KI-Anbieter spielen mit unserem Leben.
 > [echter Screenshot eines öffentlichen Posts]
 > Wenn du so was liest und merkst, dass aus deinem „damit beschäftige ich mich später" langsam „davon hab ich keine Ahnung" wird, wirst du genau so zum Technik-Boomer wie deine Eltern, als WhatsApp rauskam.
@@ -122,18 +133,18 @@ Aus den Methoden-Videos, von uns als Werkzeug genutzt, nicht als bewiesenes Gese
 ## Der CTA
 
 - **Genau eine Handlung.** Ein Keyword für ein genau benanntes Material. Nicht zusätzlich folgen, liken, teilen.
-- **Das Ende sieht kaum jemand.** Bei uns erreichten rund 15 % den Schluss. Den CTA deshalb zusätzlich früh einblenden (ab etwa Sekunde 3) und in die Caption schreiben.
+- **Das Ende sieht kaum jemand.** Bei Pascals Reels erreichten rund 15 % den Schluss. Den CTA deshalb zusätzlich früh einblenden (ab etwa Sekunde 3) und in die Caption schreiben.
 - Im Imperativ, locker: „Kommentier einfach AGENT, dann schick ich dir die Anleitung komplett kostenlos."
 
 ## Ablauf für ein neues Skript
 
 1. **Den echten Moment wählen:** Was hast du wirklich erlebt, gebaut, herausgefunden? Welchen Beleg kannst du zeigen?
 2. **In je einem Satz notieren:** Kontext, Erwartung, Wendung. Beantwortet der Hauptteil die aufgeworfene Frage?
-3. **Drei Hooks schreiben,** mit unterschiedlichem Motiv: direkter Nutzen, echter Widerspruch, persönliche Beobachtung. Mit `references/hook-check.md` prüfen.
+3. **Drei Hooks schreiben,** mit unterschiedlichem Motiv: direkter Nutzen, echter Widerspruch, persönliche Beobachtung. Mit `.claude/skills/skript/references/hook-check.md` prüfen.
 4. **Hauptteil gemeinsam für alle drei.** Nur der Einstieg und ggf. der erste Übergang ändern sich.
 5. **Pro Hook Bild und Einblendung mitplanen,** nicht erst im Schnitt.
 6. **Laut vorlesen, Zeit stoppen, kürzen.** Dann gegen `mein-content/stimme.md` die Wortwahl prüfen.
-7. **Alle drei Versionen drehen und posten.** Welche Hook besser läuft, entscheidet das Publikum, nicht dein Bauch. Die Zahlen trägst du mit `/content-plan` ein, Details zur Auswertung stehen in `../edit/references/schnitt-und-auswertung.md`.
+7. **Alle drei Versionen drehen und posten.** Welche Hook besser läuft, entscheidet das Publikum, nicht dein Bauch. Die Zahlen trägst du mit `/content-plan` ein, Details zur Auswertung stehen in `.claude/skills/edit/references/schnitt-und-auswertung.md`.
 
 ## Ausgabeformat für Claude
 
@@ -159,7 +170,7 @@ Bei mehreren Versionen: Hauptteil einmal ausschreiben, dann nur die abweichenden
 - [ ] Versteht ein Fremder den ersten Satz ohne Vorwissen?
 - [ ] Ist der Gedanke konkret, nicht allgemein?
 - [ ] Gibt es Neugier oder etwas, das auf dem Spiel steht?
-- [ ] Ist jede Behauptung belegt oder als Ziel/Meinung markiert?
+- [ ] Ist jede Behauptung belegt oder als Ziel/Meinung markiert? Geh dafür Satz für Satz durch und nenn zu jeder Aussage über den Nutzer die Zeile im Profil. Findest du keine, streich den Satz oder frag nach. Erst dann abhaken.
 - [ ] Löst das Video die Frage aus dem Hook?
 - [ ] Genau ein CTA, früh eingeblendet und in der Caption?
 - [ ] Unter 20 Sekunden, oder gibt es einen guten Grund für mehr?

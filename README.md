@@ -8,7 +8,7 @@ Die Anleitung Schritt für Schritt, mit Beschreibung jedes Skills, liegt in [`do
 
 | Skill | Was er macht | Ergebnis |
 |---|---|---|
-| `/interview` | Fragt dich eine Frage nach der anderen: wer du bist, was du anbietest, wer zuschaut, was du belegen kannst. Optional baut er deine Stimme. | `mein-content/profil.md`, `stimme.md` |
+| `/interview` | Fragt dich eine Frage nach der anderen: wer du bist, was du anbietest, wie du deinen Kunden hilfst, wer zuschaut, was du belegen kannst. Optional baut er deine Stimme. | `mein-content/profil.md`, `stimme.md` |
 | `/recherche` | Sucht im Netz, was deine Zielgruppe fragt, was neu ist und was bei anderen läuft. Jede Aussage mit Link. | `mein-content/recherche/<datum>.md` |
 | `/content-plan` | Baut daraus den Plan: welches Video an welchem Tag, mit Hook-Idee, Beleg und CTA. Wertet später deine Zahlen aus. | `mein-content/plan.md` |
 | `/skript` | Schreibt pro Video das Skript in deinem Ton, mit drei Hooks zum Testen. | `mein-content/skripte/` |
@@ -27,7 +27,7 @@ Die Skills bauen aufeinander auf und lesen alle aus dem Ordner `mein-content/`. 
 4. Dann der Reihe nach `/recherche`, `/content-plan`, `/skript`. Claude sagt dir nach jedem Schritt, was als Nächstes kommt.
 5. Video drehen, dann `/edit`.
 
-Willst du die Skills in jedem Ordner haben, nicht nur in diesem: einmal `cp -R .claude/skills/* ~/.claude/skills/` im Terminal. Dann legt Claude `mein-content/` in dem Ordner an, in dem du gerade arbeitest.
+Willst du die Skills in jedem Ordner haben, nicht nur in diesem: einmal `mkdir -p ~/.claude/skills && cp -R .claude/skills/* ~/.claude/skills/` im Terminal (Mac und Linux). Dann legt Claude `mein-content/` in dem Ordner an, in dem du gerade arbeitest.
 
 ## Was im Repo liegt
 

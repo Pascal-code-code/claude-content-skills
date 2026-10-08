@@ -27,7 +27,9 @@ Sei ehrlich, was nicht geht: Instagram und TikTok lassen sich ohne Login kaum du
 - Branchen-News, Blogs, Produkt-Changelogs
 - Google Trends, falls die Seite lädt
 
-Der Nutzer kann zusätzlich Links zu Accounts oder Videos oder Screenshots in den Chat legen. Frag ihn einmal am Anfang danach, warte aber nicht darauf. Was er schickt, wertest du mit aus.
+Reddit, YouTube und manche News-Seiten blocken WebFetch öfter. Lädt etwas nicht, notier es unter "Nicht ladbar" und mach mit dem Rest weiter, brich nie ab. Die Suchergebnisse selbst (Titel, Auszug, Link) reichen oft schon für eine Frage der Zielgruppe.
+
+Der Nutzer kann zusätzlich Links zu Accounts oder Videos oder Screenshots in den Chat legen. Frag ihn in deiner ersten Nachricht danach ("Hast du Links zu Accounts oder Videos, die dir aufgefallen sind? Sonst lege ich direkt los."), warte aber nicht länger als eine Antwort darauf. Was er schickt, wertest du mit aus.
 
 ## Schritt 3: Pro Säule vier Fragen
 
@@ -49,7 +51,9 @@ Gib jedem Kandidaten 1 bis 3 Punkte pro Frage (1 schwach, 2 ok, 3 stark):
 | Ist es aktuell oder zeitlos gefragt? | Datum, wiederkehrende Fragen |
 | Führt es zum CTA-Ziel? | Ziel und CTA in `profil.md` |
 
-Höchstens 12 Punkte. Kandidaten ohne Bezug zu Säulen, Zielgruppe oder Grenzen aus dem Profil wirfst du raus, auch wenn sie im Netz gerade laufen. Ziel: mindestens 10, höchstens etwa 20 Kandidaten in der Tabelle.
+Höchstens 12 Punkte.
+
+Thema und Hook-Ansatz beschreiben das Thema, nicht angebliche Ergebnisse des Nutzers. Details über den Nutzer, seine Kunden oder seine Methode kommen nur aus `profil.md`, wörtlich. Die Quellen in der Zeile müssen das Thema selbst stützen, nicht nur das Umfeld. Passt keine Quelle genau, schreib "keine passende Quelle" und gib höchstens 1 Punkt für Zielgruppe. Kandidaten ohne Bezug zu Säulen, Zielgruppe oder Grenzen aus dem Profil wirfst du raus, auch wenn sie im Netz gerade laufen. Ziel: mindestens 10, höchstens etwa 20 Kandidaten in der Tabelle.
 
 ## Regeln, die nie brechen
 

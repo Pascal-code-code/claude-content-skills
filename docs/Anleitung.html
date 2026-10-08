@@ -286,8 +286,8 @@ claude</span>
     <div class="step-num">5</div>
     <div class="step-body">
       <h4>Optional: Skills überall nutzen</h4>
-      <p>Willst du die Skills in jedem Projekt haben, nicht nur in diesem Ordner, kopierst du sie einmal in deinen persönlichen Skill-Ordner. Claude legt <code>mein-content/</code> dann dort an, wo du gerade arbeitest.</p>
-      <span class="cmd">cp -R .claude/skills/* ~/.claude/skills/</span>
+      <p>Willst du die Skills in jedem Projekt haben, nicht nur in diesem Ordner, kopierst du sie einmal in deinen persönlichen Skill-Ordner. Claude legt <code>mein-content/</code> dann dort an, wo du gerade arbeitest. Der Befehl unten gilt für Mac und Linux.</p>
+      <span class="cmd">mkdir -p ~/.claude/skills &amp;&amp; cp -R .claude/skills/* ~/.claude/skills/</span>
     </div>
   </div>
 
@@ -296,10 +296,10 @@ claude</span>
 
   <div class="skill">
     <div class="sk-head"><span class="sk-num">1</span><span class="sk-name">/interview</span><span class="sk-time">15 bis 20 Min</span></div>
-    <p>Claude interviewt dich, eine Frage pro Nachricht: Wer bist du, was bietest du an, wer schaut dir zu und in welcher Situation, welche echten Zahlen und Ergebnisse kannst du zeigen, was darf nie behauptet werden, wie oft willst du posten. Hast du eine Website oder alte Captions, wirf sie am Anfang rein, dann fragt er nur noch die Lücken ab. Am Ende schlägt er dir 3 bis 5 Themen-Säulen vor, die du bestätigst.</p>
+    <p>Claude interviewt dich, eine Frage pro Nachricht: Wer bist du, was bietest du an, wie hilfst du deinen Kunden konkret, wer schaut dir zu und in welcher Situation, welche echten Zahlen und Ergebnisse kannst du zeigen, was darf nie behauptet werden, wie oft willst du posten. Hast du eine Website oder alte Captions, wirf sie am Anfang rein, dann fragt er nur noch die Lücken ab. Am Ende schlägt er dir 3 bis 5 Themen-Säulen vor, die du bestätigst.</p>
     <div class="sk-grid">
       <div><b>Ergebnis</b><code>mein-content/profil.md</code></div>
-      <div><b>Tipp</b>Antworte so, wie du redest, nicht wie auf einer Website. Genau diese Wörter braucht Claude später für die Hooks.</div>
+      <div><b>Tipp</b>Nimm dir für die Frage nach deiner Methode am meisten Zeit. Jeder Tipp in deinen Skripten kommt von dort, Claude erfindet keinen eigenen.</div>
     </div>
     <div class="sk-extra"><b>Teil 2, optional (etwa 60 Minuten):</b> deine Stimme. Du gibst Claude 5 bis 10 frei gesprochene Aufnahmen von dir, zum Beispiel Sprachnachrichten oder alte Videos. Er analysiert, wie du redest, und schreibt <code>stimme.md</code>. Ab da klingen alle Skripte nach dir statt nach Maschine. Keine Aufnahmen da? Eine Sprachmemo von 5 Minuten reicht für den Anfang.</div>
   </div>
